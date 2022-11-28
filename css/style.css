@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #05BDFD;
+    height: 100vh;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 99vh;
+    align-items: center;
+}
+.btn_log{
+    display: flex;
+    flex-direction:column;
+    width: 50%;
+    height:30%;
+    justify-content: space-evenly;
+  
+    
+
+}
+.btn_log a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.btn_log button{
+    padding: 20px;
+    border-radius: 50px;
+    width: 50%;
+    border: none;
+    color: white;
+    background: #D69F9A;
+    
+}
+
+#seller_btn{
+    background: #4472C4;
+}
