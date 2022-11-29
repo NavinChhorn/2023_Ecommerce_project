@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seller page</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="img"><a href="../../index.html"><img src="../../images/logo.png" alt=""></a></div>
+        <div class="btn_navbar">
+            <a href="../customer/customer.html"><button class="button">Customer</button></a>
+            <a href="#"><button class="button">seller</button></a>
+        </div>
+    </nav>
+    <div id="seller-view" style="display: block;" >
+        <div id="product-view">
+            <button class="button">Add product</button>
+            <div id="product-container" >
+                <table>
+                    <tr>
+                      <th>ID</th>
+                      <th>Product</th>
+                      <th>Description</th>
+                      <th>Cost</th>                      
+                      <th>action</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Dress</td>
+                      <td>Red dress</td>
+                      <td>20$</td>
+                      <td class="action">
+                        <span><img src="../../images/edit.png" alt=""></span>
+                        <span><img src="../../images/delete.png" alt=""></span>
+                      </td>
+                    </tr>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog_product"  style="display: none;">
+      <dialog open>
+          <header>Create new Product</header>
+  
+          <section>
+            <label>Product </label>
+            <input id="id" type="text" placeholder="ID" />
+            <label>Retail news</label>
+            <input id="product" type="text" placeholder="Product name" />
+            <input id="description" type="text" placeholder="Description of product" />
+            <input id="cost" type="text" placeholder="Cost" />
+            <input id="currency" type="text" placeholder="Currency" />
+          </section>
+          <menu  class="btn_menu">
+            <button class="button">Cancel</button>
+            <button class="button">Add</button>
+            <button class="button">Edit</button>
+          </menu>
+    </dialog>
+</body>
+</html>
