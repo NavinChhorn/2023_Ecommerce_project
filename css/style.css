@@ -36,32 +36,21 @@ body{
 /* ---------------seller page-------------------------------- */
 #product-view {
     height: 99vh;
-    width: 80%;
+    width: 95%;
     margin: auto;
     margin-top: 50px;
     
 }
-table {
-
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-} 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+#product-container{
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
 }
-  
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
 .action{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
 }
-
 
 /* -------------------- nav bar ----------------------------- */
 nav{
@@ -121,7 +110,7 @@ button:hover,button:active {
 
 
 /* dialog page */
-.dialog_product {
+#dialog_product {
     position: fixed;
     top: 0;
     left: 0;
@@ -129,7 +118,7 @@ button:hover,button:active {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 10;
-  }
+}
   
 dialog {
     position: fixed;
@@ -140,7 +129,7 @@ dialog {
     border-radius: 12px;
     border: none;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    padding: 0;
+    padding: 10px;
     margin: 0;
     overflow: hidden;
 }
@@ -151,7 +140,7 @@ dialog header {
     font-size: 1.25rem;
     width: 100%;
     padding: 1rem;
-  }
+}
   
 dialog section {
     padding: 1rem;
@@ -172,7 +161,7 @@ dialog label {
     display: block;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-  }
+}
   
 input {
     display: block;
@@ -181,6 +170,7 @@ input {
     font-size: 1.1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    padding: 7px;
 }
   
 input:focus {
@@ -226,7 +216,6 @@ input:focus {
     width: 250px;
     padding: 20px;
     display: grid;
-   
     gap: 25px;
     margin-top: 20px;
 

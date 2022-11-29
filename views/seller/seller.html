@@ -17,49 +17,51 @@
     </nav>
     <div id="seller-view" style="display: block;" >
         <div id="product-view">
-            <button class="button">Add product</button>
-            <div id="product-container" >
-                <table>
-                    <tr>
-                      <th>ID</th>
-                      <th>Animal</th>
-                      <th>Description</th>
-                      <th>Cost</th>                      
-                      <th>action</th>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Cat</td>
-                      <td>Red cat</td>
-                      <td>120$</td>
-                      <td class="action">
+            <button onclick="Onadd()" class="button" >Add product</button>
+              <div id="product-container" >
+                <div class="card">
+                  <img src="../../images/bird.webp" alt="" id="animal">
+                    <div class="retail_news">
+                      <div class="news">
+                          <p id="name_animal">Bird</p>
+                          <p>20$</p>
+                          <span>
+                              <img class="stars" src="../../images/black star.webp" alt="">
+                              <img class="stars" src="../../images/black star.webp" alt="">
+                              <img class="stars" src="../../images/black star.webp" alt="">
+                              <img class="stars" src="../../images/black star.webp" alt="">
+                              <img class="stars" src="../../images/black star.webp" alt="">
+                          </span>
+                      </div>
+                      <div class="action">
                         <img src="../../images/edit.png" alt="">
                         <img src="../../images/delete.png" alt="">
-                      </td>
-                    </tr>
-                  </table>
-            </div>
+                      </div>
+                    </div>
+                </div>
+             </div>
         </div>
     </div>
 
-    <div class="dialog_product"  style="display: none;" >
+    <div id="dialog_product"  style="display: none;" >
       <dialog open>
           <header>Create new Product</header>
   
           <section>
             <label>Product </label>
-            <input id="id" type="text" placeholder="ID" />
-            <label>Retail news</label>
             <input id="animal" type="text" placeholder="animal name" />
+            <label>Retail news</label>
+            <input id="url" type="text" placeholder="image" />
             <input id="description" type="text" placeholder="Description of product" />
             <input id="cost" type="text" placeholder="Cost" />
             <input id="currency" type="text" placeholder="Currency" />
           </section>
           <menu  class="btn_menu">
-            <button class="button">Cancel</button>
-            <button class="button">Add</button>
-            <button class="button">Edit</button>
+            <button class="button" onclick="Onconcel()">Cancel</button>
+            <button class="button" id="add" onclick="Oncreate()">create</button>
+            <button class="button" id="edit">Edit</button>
           </menu>
     </dialog>
 </body>
+<script src="seller.js"></script>
 </html>
