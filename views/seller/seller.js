@@ -3,6 +3,8 @@ const dialog = document.querySelector("#dialog_product");
 const edit_btn = document.querySelector("#edit");
 const add_btn = document.querySelector("#add");
 const Product_view = document.querySelector("#product-view");
+// const delete_btn = document.querySelector("#delete_btn");
+
 
 
 let animalData = [
@@ -104,6 +106,12 @@ function loadproduct() {
   
 }
 
+function deleteData(event){
+    let index = event.target.parentElement.parentElement.parentElement.dataset.index;
+    console.log(index)
+    animalData.splice(index, 1);
+    saveData();
+}
 
 function showProduct(){
     document.querySelector("#product-container").remove();
@@ -113,6 +121,7 @@ function showProduct(){
     for(i in animalData){
         let card = document.createElement("div");
         card.className = "card";
+        card.dataset.index = i;
         product_container.appendChild(card);
 
         let img = document.createElement("img");
@@ -154,8 +163,9 @@ function showProduct(){
         action.appendChild(img_edit);
 
         let img_delete = document.createElement("img");
-        // img_delete.addEventListener(onclick,deleteData());
+        img_delete.id = "delete_btn";
         img_delete.src = "../../images/delete.png";
+        img_delete.addEventListener("click",deleteData);
         action.appendChild(img_delete);
         
     }
