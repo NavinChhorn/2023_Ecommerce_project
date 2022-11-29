@@ -189,3 +189,61 @@ input:focus {
     border-color: var(--main-color-light);
 }
   
+
+
+/*---------------------- customer page------------------------------ */
+
+.search_animal{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    border: 1px solid black;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.search_animal input{
+    border: none;
+    background: none;
+}
+.card_product{
+    
+    display: grid;
+    gap: 30px;
+    padding: 20px;
+}
+.new_product{
+    /* background: rgb(230, 47, 47); */
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    
+}
+.all_card{
+    display: flex;
+    gap: 30px;
+}
+.card{
+    width: 250px;
+    padding: 20px;
+    display: grid;
+   
+    gap: 25px;
+    margin-top: 20px;
+
+}
+#animal{
+    width: 250px;
+    display: grid;
+    gap: 20px;
+}
+.retail_news{
+    display: grid;
+    gap: 20px;
+}
+.stars{
+    width: 20px;
+}
+/* .old_product{
+    background: #000;
+
+} */
