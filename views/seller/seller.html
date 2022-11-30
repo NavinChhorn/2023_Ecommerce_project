@@ -24,16 +24,17 @@
 
     <div id="dialog_product"  style="display: none;" >
       <dialog open>
-          <header>Create new Product</header>
+          <header id="dialog_header"></header>
   
           <section>
             <label>Product </label>
             <input id="nameOf_animal" type="text" placeholder="animal name" />
             <label>Retail news</label>
-            <input id="url" type="text" placeholder="image" />
+            <input id="url" type="url" placeholder="image" />
             <input id="description" type="text" placeholder="Description of product" />
-            <input id="cost" type="text" placeholder="Cost" />
+            <input id="cost" type="number" placeholder="Cost" />
             <input id="currency" type="text" placeholder="Currency" />
+            <input id="source" type="url" placeholder="source of animal" />
           </section>
           <menu  class="btn_menu">
             <button class="button" onclick="Onconcel()">Cancel</button>

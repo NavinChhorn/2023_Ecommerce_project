@@ -17,158 +17,21 @@
     </nav>
     <div class="contain_customerpage">
         <form action="" class="search_animal">
-            <input type="text" placeholder="Search name animal..." />
+            <input type="text" placeholder="Search name animal..."  id="myInput"  onkeyup="myFunction()" />
             <img src="../../images/searchIcon.png" alt="">
         </form>
         <div class="card_product">
             <div class="new_product">
                 <h2>Now Product</h2>
-                <div class="all_card" >
-                    <div class="card">
-                        <img src="../../images/bird.webp" alt="" id="animal">
-                        <div class="retail_news">
-                            <div class="news">
-                                <p id="name_animal">Bird</p>
-                                <p>20$</p>
-                                <span>
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                </span>
-                            </div>
-                            <button class="button">Buy now</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../../images/bird.webp" alt="" id="animal">
-                        <div class="retail_news">
-                            <div class="news">
-                                <p id="name_animal">Bird</p>
-                                <p>20$</p>
-                                <span>
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                </span>
-                            </div>
-                            <button class="button">Buy now</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../../images/bird.webp" alt="" id="animal">
-                        <div class="retail_news">
-                            <div class="news">
-                                <p id="name_animal">Bird</p>
-                                <p>20$</p>
-                                <span>
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                </span>
-                            </div>
-                            <button class="button">Buy now</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../../images/bird.webp" alt="" id="animal">
-                        <div class="retail_news">
-                            <div class="news">
-                                <p id="name_animal">Bird</p>
-                                <p>20$</p>
-                                <span>
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                    <img class="stars" src="../../images/black star.webp" alt="">
-                                </span>
-                            </div>
-                            <button class="button">Buy now</button>
-                        </div>
-                    </div>
+                <div class="all_card"  id = "contain_new_product">
                 </div>
             </div>
             <div class="old_product">
-                <div class="new_product">
                     <h2>Old Product</h2>
-                    <div class="all_card" >
-                        <div class="card">
-                            <img src="../../images/bird.webp" alt="" id="animal">
-                            <div class="retail_news">
-                                <div class="news">
-                                    <p id="name_animal">Bird</p>
-                                    <p>20$</p>
-                                    <span>
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                    </span>
-                                </div>
-                                <button class="button">Buy now</button>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../../images/bird.webp" alt="" id="animal">
-                            <div class="retail_news">
-                                <div class="news">
-                                    <p id="name_animal">Bird</p>
-                                    <p>20$</p>
-                                    <span>
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                    </span>
-                                </div>
-                                <button class="button">Buy now</button>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../../images/bird.webp" alt="" id="animal">
-                            <div class="retail_news">
-                                <div class="news">
-                                    <p id="name_animal">Bird</p>
-                                    <p>20$</p>
-                                    <span>
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                    </span>
-                                </div>
-                                <button class="button">Buy now</button>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="../../images/bird.webp" alt="" id="animal">
-                            <div class="retail_news">
-                                <div class="news">
-                                    <p id="name_animal">Bird</p>
-                                    <p>20$</p>
-                                    <span>
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                        <img class="stars" src="../../images/black star.webp" alt="">
-                                    </span>
-                                </div>
-                                <button class="button">Buy now</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="all_card" id = "contain_old_product" ></div>
             </div>
         </div>
     </div>
 </body>
+<script src="customer.js"></script>
 </html>
