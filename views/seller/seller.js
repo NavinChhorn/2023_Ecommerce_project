@@ -53,9 +53,14 @@ function show(element){
 // on add button
 function Onadd(){
     show(dialog);
-    hide(edit_btn)
+    hide(edit_btn);
+    show(add_btn)
+    document.querySelector("#nameOf_animal").value = "";
+    document.querySelector("#description").value= "";
+    document.querySelector("#cost").value = "";
+    document.querySelector("#currency").value = "";
+    document.querySelector("#url").value = "";
 
-  
 
 }
 
@@ -68,11 +73,30 @@ function Onconcel(){
 // On add button
 function Oncreate(){
     hide(dialog);
-    readerdata()
+    CreateData()
 }
 
 
-function readerdata(){
+function Onedit(event){
+    show(dialog);
+    hide(add_btn);
+    show(edit_btn);
+    let index = event.target.parentElement.parentElement.parentElement.dataset.index;
+    document.querySelector("#nameOf_animal").value = animalData[index].name;
+    document.querySelector("#description").value = animalData[index].description;
+    document.querySelector("#cost").value = animalData[index].cost;
+    document.querySelector("#currency").value = animalData[index].currency;
+    document.querySelector("#url").value = animalData[index].img;
+
+    document.querySelector("#edit").addEventListener("click",function(){
+        changeData(index);
+        index = null;
+    });
+    console.log(index)
+}
+
+function changeData(index){
+    hide(dialog)
     let animal = {}
     animal.name = document.querySelector("#nameOf_animal").value;
     animal.description = document.querySelector("#description").value;
@@ -80,15 +104,27 @@ function readerdata(){
     animal.currency = document.querySelector("#currency").value;
     animal.img = document.querySelector("#url").value;
 
-    console.log(animal.name)
+    animalData[index] = animal;
+    saveData();
+    console.log(animalData)
+}
+function deleteData(event){
+    let index = event.target.parentElement.parentElement.parentElement.dataset.index;
+    animalData.splice(index, 1);
+    saveData();
+}
+
+
+function CreateData(){
+    let animal = {}
+    animal.name = document.querySelector("#nameOf_animal").value;
+    animal.description = document.querySelector("#description").value;
+    animal.cost = document.querySelector("#cost").value;
+    animal.currency = document.querySelector("#currency").value;
+    animal.img = document.querySelector("#url").value;
     animalData.push(animal);
 
-    document.querySelector("#nameOf_animal").value = "";
-    document.querySelector("#description").value= "";
-    document.querySelector("#cost").value = "";
-    document.querySelector("#currency").value = "";
-    document.querySelector("#url").value = "";
-
+    
     saveData();
 }
 
@@ -99,26 +135,20 @@ function saveData() {
 }
   
 function loadproduct() {
-    let alldata = JSON.parse(localStorage.getItem("animalData"));
-    console.log(alldata)
+    JSON.parse(localStorage.getItem("animalData"));
     showProduct()
 
   
 }
 
-function deleteData(event){
-    let index = event.target.parentElement.parentElement.parentElement.dataset.index;
-    console.log(index)
-    animalData.splice(index, 1);
-    saveData();
-}
+
 
 function showProduct(){
     document.querySelector("#product-container").remove();
     let product_container = document.createElement("div");
     product_container.id ="product-container";
     Product_view.appendChild(product_container);
-    for(i in animalData){
+    for(let i=0 ; i<animalData.length ; i++){
         let card = document.createElement("div");
         card.className = "card";
         card.dataset.index = i;
@@ -159,6 +189,7 @@ function showProduct(){
         action.className = "action";
         retail_news.appendChild(action);
         let img_edit = document.createElement("img");
+        img_edit.addEventListener("click",Onedit);
         img_edit.src = "../../images/edit.png";
         action.appendChild(img_edit);
 
