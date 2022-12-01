@@ -14,7 +14,6 @@ let animalData = [
         description:"black bird",
         cost:"20",
         currency:"$",
-        source:"https://www.istockphoto.com/search/2/image?phrase=baby+lion",
         img:"https://wallpaperaccess.com/full/1137899.jpg"
         
     },
@@ -23,7 +22,6 @@ let animalData = [
         description:"black bird",
         cost:"20",
         currency:"$",
-        source:"https://www.scientificamerican.com/article/silent-skies-billions-of-north-american-birds-have-vanished/",
         img:"https://static.scientificamerican.com/sciam/cache/file/7A715AD8-449D-4B5A-ABA2C5D92D9B5A21_source.png?w=590&h=800&756A88D1-C0EA-4C21-92BE0BB43C14B265",
         
     },
@@ -32,7 +30,6 @@ let animalData = [
         description:"black bird",
         cost:"20",
         currency:"$",
-        source:"https://www.bumrungrad.com/en/health-blog/jan-2018/to-do-if-snake-bites",
         img:"https://www.bumrungrad.com/getattachment/9ce46017-91e6-4d27-a6d8-c8867ac40698/Cobra.jpg"
         
     },
@@ -41,7 +38,6 @@ let animalData = [
         description:"Red rabbet",
         cost:"20",
         currency:"$",
-        source:"https://mom.com/momlife/19868-animals-bring-good-luck",
         img:"https://images.ctfassets.net/9l3tjzgyn9gr/photo-112402/cf25fec1eea7ab0665f586b3481e436c/112402-rabbit-lucky-animals-510x600.jpg"
         
     },
@@ -88,15 +84,14 @@ function Oncreate(){
     
     let animal = {}
     let already_completed = true;
-    animal.name = document.querySelector("#nameOf_animal").value;
+    animal.name = document.querySelector("#nameOfanimal").value;
     animal.description = document.querySelector("#description").value;
     animal.cost = document.querySelector("#cost").value;
     animal.currency = document.querySelector("#currency").value;
     animal.img = document.querySelector("#url").value;
-    animal.source = document.querySelector("#source").value;
 
     for (i in animal) {
-        if (animal[i]=="" ||  !(isValidUrl(animal.img)) ||!(isValidUrl(animal.source))){
+        if (animal[i]=="" ||  !(isValidUrl(animal.img))){
             already_completed = false;
         }
     }
@@ -140,7 +135,6 @@ function Onedit(event){
     document.querySelector("#cost").value = animalData[index].cost;
     document.querySelector("#currency").value = animalData[index].currency;
     document.querySelector("#url").value = animalData[index].img;
-    document.querySelector("#source").value = animalData[index].source;
 
     
     document.querySelector("#edit").addEventListener("click",function(){
@@ -158,7 +152,6 @@ function changeData(index){
     animal.cost = document.querySelector("#cost").value;
     animal.currency = document.querySelector("#currency").value;
     animal.img = document.querySelector("#url").value;
-    animal.source = document.querySelector("#source").value;
 
     let already_completed = true;
     for (i in animal) {
@@ -234,10 +227,7 @@ function showProduct(){
         let img = document.createElement("img");
         img.id = "animal";
         img.src = animalData[i].img;
-        let link = document.createElement("a");
-        link.href = animalData[i].source;
-        link.appendChild(img);
-        card.appendChild(link);
+        card.appendChild(img);
 
         let retail_news = document.createElement("div");
         retail_news.className = "retail_news";

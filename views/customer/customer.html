@@ -15,7 +15,7 @@
             <a href="../seller/seller.html"><button class="button">seller</button></a>
         </div>
     </nav>
-    <div class="contain_customerpage">
+    <div class="contain_customerpage" >
         <form action="" class="search_animal">
             <input type="text" placeholder="Search name animal..."  id="userInput"  onkeyup="search()" />
             <img src="../../images/searchIcon.png" alt="">
@@ -33,6 +33,22 @@
             </div>
         </div>
     </div>
+
+    <div id="dialog_product"  style="display: none;" >
+        <dialog open id="detail_dialog">
+            <header id="dialog_header">hello</header>
+            <div class="dialog_card">
+                <img src="../../images/cat.jpg" alt="" id="detail_img">
+                <div class="dialog_news">
+                    <p>Name: <span id="detail_name">Dara</span></p>
+                    <p>Description: <span id="detail_description">Red Cat </span></p>
+                    <p>Cost: <span id="detail_cost">200$</span></p>
+                    <button class="button" onclick="buy()" >buy</button>
+                    <button class="button" onclick="back()" >Back</button>
+                </div>
+            </div>
+        
+      </dialog>
 </body>
 <script src="customer.js"></script>
 </html>

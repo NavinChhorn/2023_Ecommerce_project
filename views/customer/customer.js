@@ -2,6 +2,12 @@
 const new_product = document.querySelector(".new_product");
 const old_product = document.querySelector(".old_product");
 const no_card =document.querySelector("#nocard");
+const detail_news = document.querySelector("#dialog_product");
+
+let dt_name = document.querySelector("#detail_name");
+let cost = document.querySelector("#detail_cost");
+let description = document.querySelector("#detail_description");
+let img = document.querySelector("#detail_img");
 
 animalData = JSON.parse(localStorage.getItem("animalData"));
 
@@ -11,7 +17,6 @@ let Old_products = [
         description:"red bird",
         cost:"200",
         currency: "$",
-        source:"https://www.istockphoto.com/search/2/image?phrase=two+birds",
         img:"../../images/bird.webp",
         
     },
@@ -20,7 +25,6 @@ let Old_products = [
         description:"yellow cat",
         cost:"200",
         currency: "$",
-        source:"https://www.nationalgeographic.com/animals/article/animals-cats-training-pets",
         img:"../../images/cat.jpg",
     },
     {
@@ -28,7 +32,6 @@ let Old_products = [
         description:"three color fish",
         cost:"200",
         currency:"$",
-        source:"https://www.earth.com/image/betta-siamese-fighting-fish/",
         img:"../../images/fish.jpeg"
     },
     {
@@ -36,7 +39,6 @@ let Old_products = [
         description:"cute pig",
         cost:"200",
         currency: "$",
-        source:"https://wallpaperaccess.com/cute-baby-pigs",
         img:"../../images/pig.jfif"
     },
     {
@@ -44,7 +46,6 @@ let Old_products = [
         description:"cbit tiger",
         cost:"200",
         currency: "$",
-        source:"https://www.wowt.com/content/news/Zoo-visitors-name-newborn-tiger-cubs-392053521.html",
         img:"../../images/tiger.jfif"
     },
     {
@@ -52,12 +53,42 @@ let Old_products = [
         description:"cute snake",
         cost:"200",
         currency: "$",
-        source:"hhttps://www.123rf.com/stock-photo/king_cobra.html",
         img:"../../images/snake.jpg"
     },
 ];
 
 
+
+
+// function hide element
+function hide(element){
+    element.style.display = "none";
+}
+
+// function show
+function show(element){
+    element.style.display = "block";
+}
+
+
+
+// detail function
+function detail(index,data){
+   
+    console.log(dt_name)
+    dt_name.textContent = data[index].name;
+    cost.textContent = data[index].cost + data[index].currency;
+    description.textContent = data[index].description;
+    img.src = data[index].img;
+
+    
+    show( detail_news)
+}
+
+// back
+function back(){
+    hide(detail_news)
+}
 
 
 // show product on buyer page 
@@ -72,15 +103,20 @@ function showProduct(data,id,parent){
     for(let i=0 ;i< data.length ;i++) {
         let card = document.createElement("div");
         card.className = "card";
+        card.dataset.index = i;
         card_new_product.appendChild(card);
 
         let img = document.createElement("img");
         img.id = "animal";
+        img.addEventListener("click",function(event){
+            let index = event.target.parentElement.dataset.index;
+            detail(index,data)
+           
+        });
+         
         img.src = data[i].img;
-        let link = document.createElement("a");
-        link.href = data[i].source;
-        card.appendChild(link);
-        link.appendChild(img);
+        card.appendChild(img);
+        
 
         let retail_news = document.createElement("div");
         retail_news.className = "retail_news";

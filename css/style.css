@@ -136,7 +136,38 @@ button:hover,button:active {
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 10;
 }
-  
+.dialog_card{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    
+} 
+.dialog_news{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 30vh;
+}
+#detail_dialog{
+    width: 45%;
+    height:45vh;
+} 
+#detail_dialog p{
+    font-size: 20px;
+    font-weight: bold;
+    color: #33546D;
+    
+}
+#detail_dialog span{
+    font-size: 15px;
+    color: #F1485B;
+}
+
+.dialog_card img{
+    width:50%;
+    margin-top: 20px;
+}
 dialog {
     position: fixed;
     top: 10vh;
