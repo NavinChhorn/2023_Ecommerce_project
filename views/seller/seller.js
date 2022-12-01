@@ -81,6 +81,8 @@ function Onconcel(){
 }
 
 
+
+
 // On add button
 function Oncreate(){
     
@@ -99,18 +101,24 @@ function Oncreate(){
         }
     }
     if(already_completed){
-        hide(dialog);
-        animalData.push(animal);
-        saveData();
-        showProduct();
+        if( !checkData(animal)){
+            hide(dialog);
+            animalData.push(animal);
+            saveData();
+            showProduct();
+        }
+        else{
+            alert("This animal is already had!");
+        }
+              
     }
     else{
-        alert("Please check it again!");
+        alert("Please complete it all!");
     }
     
 }
 
-// 
+// check url or not 
 function isValidUrl(urlString) {
     try { 
         return Boolean(new URL(urlString)); 
@@ -141,6 +149,7 @@ function Onedit(event){
     });
 }
 
+//change data 
 function changeData(index){
 
     let animal = {}
@@ -158,16 +167,32 @@ function changeData(index){
         }
     }
     if(already_completed){
-        hide(dialog)
-        animalData[index] = animal;
-        saveData();
-        showProduct();
+            hide(dialog)
+            animalData[index] = animal;
+            saveData();
+            showProduct();
+        
+        
     }
     else{
         alert("Please check it again!");
     }
     
 }
+
+// check data
+function checkData(data){
+    let found = false;
+    for (let i in animalData){
+        if (animalData[i].name.toUpperCase() == data.name.toUpperCase()  || animalData[i].img == data.img){
+            found = true;
+            
+        }
+    }
+    return  found ;
+
+}
+// delete data 
 function deleteData(event){
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
     animalData.splice(index, 1);
@@ -176,12 +201,13 @@ function deleteData(event){
 }
 
 
-
+// save data in local
 function saveData() {
     localStorage.setItem("animalData", JSON.stringify(animalData));
     
 }
   
+// load data 
 function loadproduct() {
     let alldata = JSON.parse(localStorage.getItem("animalData"));
     if (alldata!= null) {
@@ -192,8 +218,8 @@ function loadproduct() {
   
 }
 
-console.log(animalData);
 
+// show product 
 function showProduct(){
     document.querySelector("#product-container").remove();
     let product_container = document.createElement("div");
@@ -265,7 +291,6 @@ function showProduct(){
 // saveData()
 loadproduct()
 showProduct()
-
 
 
 

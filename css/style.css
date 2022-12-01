@@ -22,7 +22,7 @@ body{
 .contain-news{
     width: 50%;
     height: 25vh;
-    align-self: center;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,13 +33,16 @@ body{
 .contain-news .btn_navbar{
     width: 70%;    
 }
-
+.logo{
+    width: 50%;
+    margin-bottom: 20px;
+}
 /* ---------------seller page-------------------------------- */
 #product-view {
     height: 99vh;
     width: 95%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 200px;
     
 }
 #product-container{
@@ -58,13 +61,18 @@ body{
 
 /* -------------------- nav bar ----------------------------- */
 nav{
+    position: fixed;
     display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
     height: 15vh;
     align-items: center;
-    background: #000;
+    /* background: #7FA7B8; */
+    background:  #33546D;
     
 }
 nav img{
@@ -87,6 +95,7 @@ nav img{
 
 
 /* ---------button-------- */
+
 button {
     color: white;
     cursor: pointer;
@@ -100,8 +109,8 @@ button:hover,button:active {
 .button {
     display: inline-block;
     text-align: center;
-    background-color: rgb(158, 34, 34);
-    border: 1px solid grey;
+    background-color:#f1485B;
+    border: 1px solid #f1485B;
     border-radius: 5px;
     cursor: pointer;
     padding: 10px;
@@ -110,8 +119,12 @@ button:hover,button:active {
     border: 1px solid rgb(15, 15, 15);
     background-color: rgb(233, 233, 233);
 }
-  
-
+.btn_home{
+    padding: 20px;
+    font-size: 20px;
+    margin-left: 350px;
+    margin-top: 50px;
+}
 
 /* dialog page */
 #dialog_product {
@@ -140,7 +153,7 @@ dialog {
   
 dialog header {
     background-color: var(--main-color);
-    color: rgb(150, 28, 28);
+    color:#33546D;
     font-size: 30px;
     width: 100%;
     display: flex;
@@ -168,17 +181,20 @@ dialog label {
     margin-top: 1rem;
     margin-bottom: 0.5rem;
 }
-  
-input {
+
+input,#currency{
     display: block;
-    width: 100%;
+    width: 98%;
     border: 1px solid #ccc;
     font-size: 1.1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     padding: 7px;
 }
-  
+#currency {
+    width: 100%;
+
+}
 input:focus {
     background-color: #f0e6fd;
     outline: none;
@@ -194,7 +210,7 @@ input:focus {
     margin: auto;
     display: flex;
     border: 1px solid black;
-    margin-top: 20px;
+    margin-top: 150px;
     border-radius: 15px;
     padding: 3px;
 }
@@ -220,6 +236,12 @@ input:focus {
     gap: 20px;
     
 }
+#nocard{
+    width: 100%;
+    font-size: 50px;
+    color: #f1485B;
+    margin: 150px 0 0 400px;
+}
 .all_card{
     /* display: flex; */
     display: grid;
@@ -232,14 +254,16 @@ input:focus {
     display: grid;
     gap: 25px;
     margin-top: 20px;
-    background: #037bb3;
+    background:#33546D;
+    color: white;
+    /* background:#7FA7B8; */
     border-radius: 20px;
 }
 .card:hover{
     transform: scale(1.05);
     transition: 1s;
     cursor: pointer;
-    color: #94140d;
+    color:#F1485B;
 
 }
 

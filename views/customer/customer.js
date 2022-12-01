@@ -1,13 +1,9 @@
 
 const new_product = document.querySelector(".new_product");
 const old_product = document.querySelector(".old_product");
-
-
+const no_card =document.querySelector("#nocard");
 
 animalData = JSON.parse(localStorage.getItem("animalData"));
-    
-    
-console.log(JSON.parse(localStorage.getItem("animalData")))
 
 let Old_products = [
     {
@@ -64,7 +60,7 @@ let Old_products = [
 
 
 
-
+// show product on buyer page 
 function showProduct(data,id,parent){
 
     document.querySelector(id).remove();
@@ -112,27 +108,41 @@ function showProduct(data,id,parent){
             span.appendChild(star)
         }
         let buy = document.createElement("button");
-        buy.className = "button";
+        buy.className = "button buy_btn";
+        
         buy.textContent = "buy now";
         retail_news.appendChild(buy);
     }
 }
 
-
+// search card
 function search(event) {
     let list_animals = document.querySelectorAll('.card');
-    console.log(list_animals)
     let user_input = document.querySelector("#userInput").value.toUpperCase();
+    let array=[]
     list_animals.forEach(Element=>{
         let name_card = Element.firstElementChild.nextElementSibling.firstElementChild.firstChild.textContent;
-        console.log(name_card)
-            if (name_card.toUpperCase().indexOf(user_input)>-1){
+        if (name_card.toUpperCase().indexOf(user_input)>-1){
                 Element.style.display=""
-            }
-            else {
+                array.push(name_card)
+        }
+        else {
                 Element.style.display ="none"
-            }
+        }
+        
+           
     })
+
+    if (array.length===0){
+        no_card.style.display = "block";
+        new_product.style.display = "none";
+        old_product.style.display = "none";
+    }
+    else {
+        new_product.style.display = "";
+        old_product.style.display = "";
+        no_card.style.display  = "none";
+    }
 };
 
 showProduct(animalData,"#contain_new_product",new_product);
