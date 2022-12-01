@@ -190,16 +190,22 @@ input:focus {
 /*---------------------- customer page------------------------------ */
 
 .search_animal{
-    width: 50%;
+    width: 60%;
     margin: auto;
     display: flex;
     border: 1px solid black;
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
+    padding: 3px;
 }
 .search_animal input{
     border: none;
     background: none;
+}
+.search_animal img{
+    width: 35px;
+    height: 35px;
+    margin: auto;
 }
 .card_product{
     
@@ -228,8 +234,16 @@ input:focus {
     margin-top: 20px;
     background: #037bb3;
     border-radius: 20px;
+}
+.card:hover{
+    transform: scale(1.05);
+    transition: 1s;
+    cursor: pointer;
+    color: #94140d;
 
 }
+
+
 #animal{
     width: 250px;
     display: grid;

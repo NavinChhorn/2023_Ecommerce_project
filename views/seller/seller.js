@@ -85,7 +85,7 @@ function Onconcel(){
 function Oncreate(){
     
     let animal = {}
-    let already_completed =true;
+    let already_completed = true;
     animal.name = document.querySelector("#nameOf_animal").value;
     animal.description = document.querySelector("#description").value;
     animal.cost = document.querySelector("#cost").value;
@@ -94,7 +94,7 @@ function Oncreate(){
     animal.source = document.querySelector("#source").value;
 
     for (i in animal) {
-        if (animal[i]=="" ||  !(isValidUrl(animal.img))){
+        if (animal[i]=="" ||  !(isValidUrl(animal.img)) ||!(isValidUrl(animal.source))){
             already_completed = false;
         }
     }
@@ -134,6 +134,7 @@ function Onedit(event){
     document.querySelector("#url").value = animalData[index].img;
     document.querySelector("#source").value = animalData[index].source;
 
+    
     document.querySelector("#edit").addEventListener("click",function(){
         changeData(index);
         index = null;
@@ -141,7 +142,7 @@ function Onedit(event){
 }
 
 function changeData(index){
-    hide(dialog)
+
     let animal = {}
     animal.name = document.querySelector("#nameOf_animal").value;
     animal.description = document.querySelector("#description").value;
@@ -150,9 +151,22 @@ function changeData(index){
     animal.img = document.querySelector("#url").value;
     animal.source = document.querySelector("#source").value;
 
-    animalData[index] = animal;
-    saveData();
-    showProduct();
+    let already_completed = true;
+    for (i in animal) {
+        if (animal[i]=="" ||  !(isValidUrl(animal.img)) ||!(isValidUrl(animal.source))){
+            already_completed = false;
+        }
+    }
+    if(already_completed){
+        hide(dialog)
+        animalData[index] = animal;
+        saveData();
+        showProduct();
+    }
+    else{
+        alert("Please check it again!");
+    }
+    
 }
 function deleteData(event){
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;

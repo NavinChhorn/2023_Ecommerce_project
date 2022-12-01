@@ -15,13 +15,16 @@ let Old_products = [
         description:"red bird",
         cost:"200",
         currency: "$",
-        img:"../../images/bird.webp"
+        source:"https://www.istockphoto.com/search/2/image?phrase=two+birds",
+        img:"../../images/bird.webp",
+        
     },
     {
         name:"cat",
         description:"yellow cat",
         cost:"200",
         currency: "$",
+        source:"https://www.nationalgeographic.com/animals/article/animals-cats-training-pets",
         img:"../../images/cat.jpg",
     },
     {
@@ -29,6 +32,7 @@ let Old_products = [
         description:"three color fish",
         cost:"200",
         currency:"$",
+        source:"https://www.earth.com/image/betta-siamese-fighting-fish/",
         img:"../../images/fish.jpeg"
     },
     {
@@ -36,6 +40,7 @@ let Old_products = [
         description:"cute pig",
         cost:"200",
         currency: "$",
+        source:"https://wallpaperaccess.com/cute-baby-pigs",
         img:"../../images/pig.jfif"
     },
     {
@@ -43,6 +48,7 @@ let Old_products = [
         description:"cbit tiger",
         cost:"200",
         currency: "$",
+        source:"https://www.wowt.com/content/news/Zoo-visitors-name-newborn-tiger-cubs-392053521.html",
         img:"../../images/tiger.jfif"
     },
     {
@@ -50,6 +56,7 @@ let Old_products = [
         description:"cute snake",
         cost:"200",
         currency: "$",
+        source:"hhttps://www.123rf.com/stock-photo/king_cobra.html",
         img:"../../images/snake.jpg"
     },
 ];
@@ -74,7 +81,10 @@ function showProduct(data,id,parent){
         let img = document.createElement("img");
         img.id = "animal";
         img.src = data[i].img;
-        card.appendChild(img);
+        let link = document.createElement("a");
+        link.href = data[i].source;
+        card.appendChild(link);
+        link.appendChild(img);
 
         let retail_news = document.createElement("div");
         retail_news.className = "retail_news";
@@ -98,7 +108,7 @@ function showProduct(data,id,parent){
         for(let i=0 ; i<5 ;i++) {
             let star = document.createElement("img");
             star.className = "stars";
-            star.src = "../../images/black star.webp";
+            star.src = "../../images/goal star.png";
             span.appendChild(star)
         }
         let buy = document.createElement("button");
@@ -108,6 +118,22 @@ function showProduct(data,id,parent){
     }
 }
 
+
+function search(event) {
+    let list_animals = document.querySelectorAll('.card');
+    console.log(list_animals)
+    let user_input = document.querySelector("#userInput").value.toUpperCase();
+    list_animals.forEach(Element=>{
+        let name_card = Element.firstElementChild.nextElementSibling.firstElementChild.firstChild.textContent;
+        console.log(name_card)
+            if (name_card.toUpperCase().indexOf(user_input)>-1){
+                Element.style.display=""
+            }
+            else {
+                Element.style.display ="none"
+            }
+    })
+};
 
 showProduct(animalData,"#contain_new_product",new_product);
 showProduct(Old_products,"#contain_old_product",old_product);
