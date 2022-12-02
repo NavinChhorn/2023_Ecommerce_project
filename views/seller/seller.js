@@ -66,7 +66,6 @@ function Onadd(){
     document.querySelector("#cost").value = "";
     document.querySelector("#currency").value = "";
     document.querySelector("#url").value = "";
-    document.querySelector("#source").value = "";
 
 
 }
@@ -84,7 +83,7 @@ function Oncreate(){
     
     let animal = {}
     let already_completed = true;
-    animal.name = document.querySelector("#nameOfanimal").value;
+    animal.name = document.querySelector("#nameOf_animal").value;
     animal.description = document.querySelector("#description").value;
     animal.cost = document.querySelector("#cost").value;
     animal.currency = document.querySelector("#currency").value;
@@ -101,6 +100,7 @@ function Oncreate(){
             animalData.push(animal);
             saveData();
             showProduct();
+            
         }
         else{
             alert("This animal is already had!");
@@ -176,6 +176,7 @@ function changeData(index){
 // check data
 function checkData(data){
     let found = false;
+    console.log("hello")
     for (let i in animalData){
         if (animalData[i].name.toUpperCase() == data.name.toUpperCase()  || animalData[i].img == data.img){
             found = true;
@@ -183,6 +184,7 @@ function checkData(data){
         }
     }
     return  found ;
+
 
 }
 // delete data 
@@ -281,6 +283,8 @@ function showProduct(){
 // saveData()
 loadproduct()
 showProduct()
+
+
 
 
 

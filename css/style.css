@@ -7,6 +7,7 @@ body{
     /* background: #05BDFD; */
     height: 100vh;
     
+    
 }
 
 /* -----------------------------first page------------------------ */
@@ -149,10 +150,7 @@ button:hover,button:active {
     justify-content: space-evenly;
     height: 30vh;
 }
-#detail_dialog{
-    width: 45%;
-    height:45vh;
-} 
+
 #detail_dialog p{
     font-size: 20px;
     font-weight: bold;
@@ -181,8 +179,12 @@ dialog {
     margin: 0;
     overflow: hidden;
 }
-  
-dialog header {
+#detail_dialog{
+    width: 45%;
+    height:45vh;
+    margin: 100px 0 0 100px;
+} 
+dialog header,#dialog_header {
     background-color: var(--main-color);
     color:#33546D;
     font-size: 30px;
@@ -231,7 +233,6 @@ input:focus {
     outline: none;
     border-color: var(--main-color-light);
 }
-  
 
 
 /*---------------------- customer page------------------------------ */
@@ -254,13 +255,22 @@ input:focus {
     height: 35px;
     margin: auto;
 }
+#contain_search{
+    display: flex;
+}
+#cart {
+    margin-top: 150px;
+    margin-right: 100px;
+    width: 50px;
+    height: 50px;
+}
 .card_product{
     
     display: grid;
     gap: 30px;
     padding: 20px;
 }
-.new_product{
+.new_product,.old_product{
     /* background: rgb(230, 47, 47); */
     padding: 20px;
     display: grid;
@@ -312,7 +322,73 @@ input:focus {
 .stars{
     width: 20px;
 }
-/* .old_product{
-    background: #000;
 
-} */
+
+/* cart currency */
+table {
+
+    border-collapse: collapse ; 
+    width: 100%;
+    margin-top: 15px;
+    
+} 
+td input{
+    width: 40%;
+    margin-left: 50px;
+   
+}
+td{
+    width: 10px;
+}
+td, th {
+    border: 1px solid #33546D;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+    color: #F1485B;
+}
+td img{
+    width: 100px;
+}
+tr:nth-child(odd) {
+    background-color: #33546D;
+}
+#cart_dialog{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    
+
+
+}
+#dialog_header{
+    font-size: 50px;
+    margin-top: 10px;
+}
+menu{
+    width: 100%;
+    align-self: flex-end;
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+#cart_dialog button{
+    width: 10%;
+    justify-content: center;
+    margin-top:10px;
+    
+}
+#total{
+    margin-top: 10px;
+    padding: 10px;
+    align-self: flex-end;
+    width: 15%;
+    border: 1px solid ;
+    background:  #33546D;
+    color:white
+}
+
+
+

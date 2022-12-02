@@ -7,48 +7,79 @@
     <title>Customer page</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
-<body>
-    <nav>
-        <div class="img"> <a href="../../index.html"><img src="../../images/logo.png" alt=""></a></div>
-        <div class="btn_navbar">
-            <a href="#"><button class="button">Customer</button></a>
-            <a href="../seller/seller.html"><button class="button">seller</button></a>
-        </div>
-    </nav>
-    <div class="contain_customerpage" >
-        <form action="" class="search_animal">
-            <input type="text" placeholder="Search name animal..."  id="userInput"  onkeyup="search()" />
-            <img src="../../images/searchIcon.png" alt="">
-        </form>
-        <div class="card_product">
-            <div id="nocard" style = "display: none">Don't Have This Animal</div>
-            <div class="new_product">
-                <h2>New Pet</h2>
-                <div class="all_card"  id = "contain_new_product">
+<body >
+    <div id="container">
+        <nav >
+            <div class="img"> <a href="../../index.html"><img src="../../images/logo.png" alt=""></a></div>
+            <div class="btn_navbar">
+                <a href="#"><button class="button">Customer</button></a>
+                <a href="../seller/seller.html"><button class="button">seller</button></a>
+            </div>
+        </nav>
+        <div class="contain_customerpage" >
+            <div id="contain_search">
+                <form action="" class="search_animal">
+                    <input type="text" placeholder="Search name animal..."  id="userInput"  onkeyup="search()" />
+                    <img src="../../images/searchIcon.png" alt="" >
+                </form>
+                <img src="../../images/cart.png" alt="" id="cart" onclick="show_cart_data();" >
+            </div>
+            
+    
+            <div class="card_product">
+                <div id="nocard" style = "display: none">Don't Have This Animal......!</div>
+                <div class="new_product">
+                    <h2>New Pet</h2>
+                    <div class="all_card"  id = "contain_new_product">
+                    </div>
+                </div>
+                <div class="old_product">
+                        <h2>Old pet</h2>
+                        <div class="all_card" id = "contain_old_product" ></div>
                 </div>
             </div>
-            <div class="old_product">
-                    <h2>Old pet</h2>
-                    <div class="all_card" id = "contain_old_product" ></div>
-            </div>
+        </div>
+    
+        <div id="dialog_product"  style="display: none;" >
+            <dialog open id="detail_dialog">
+                <header id="dialog_header">Detail News </header>
+                <div class="dialog_card">
+                    <img src="../../images/cat.jpg" alt="" id="detail_img">
+                    <div class="dialog_news">
+                        <p>Name: <span id="detail_name"></span></p>
+                        <p>Description: <span id="detail_description"></span></p>
+                        <p>Cost: <span id="detail_cost"></span></p>
+                        <button class="button" id="btn_add_cart" onclick="cart()">Add Cart</button>
+                        <button class="button" onclick="back()" >Back</button>
+                    </div>
+                </div>
+            
+            </dialog>
         </div>
     </div>
-
-    <div id="dialog_product"  style="display: none;" >
-        <dialog open id="detail_dialog">
-            <header id="dialog_header">hello</header>
-            <div class="dialog_card">
-                <img src="../../images/cat.jpg" alt="" id="detail_img">
-                <div class="dialog_news">
-                    <p>Name: <span id="detail_name">Dara</span></p>
-                    <p>Description: <span id="detail_description">Red Cat </span></p>
-                    <p>Cost: <span id="detail_cost">200$</span></p>
-                    <button class="button" onclick="buy()" >buy</button>
-                    <button class="button" onclick="back()" >Back</button>
-                </div>
-            </div>
+    <div class="cart"  style="display: none;" >
+        <div id="cart_dialog">
+            <header id="dialog_header">Your Cart</header>
+            <menu>
+                <button class="button" onclick="back()" >Back</button>
+                <button class="button"  >Payment</button>
+            </menu>
+            <div id="total">Total: <span id="total_price"> </span></div>
+            <table id="table">
+                    <tr>
+                      <th>Img</th>
+                      <th>Animal</th>
+                      <th>Cost</th>
+                      <th>Action</th>                    
+                    </tr>
+            
+            </table>
+            
+            
+           
         
-      </dialog>
+        </div>
+    </div>   
 </body>
 <script src="customer.js"></script>
 </html>
