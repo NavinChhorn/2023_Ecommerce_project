@@ -417,10 +417,14 @@ function total_lists(button){
 }
 //  ----------------------------- fuction check input in payment--------------------------------------------------------
 document.querySelector(".checkout").addEventListener("click",function(){
-    if (cname.value != "" && ccnum.value !="" && expmonth.value !="" && cvv.value !="" && expyear.value != "" ){
+    if (cname.value != "" && ccnum.value !="" && expmonth.value !="" && cvv.value !="" && expyear.value != "" && ccnum.value.length==16 && cvv.value.length==3){
         hide(document.querySelector(".payment"))
         show(document.querySelector("#container"))
         cart_lists = []
+
+    }
+    else if(ccnum.value.length!=16 && ccnum.value.length!=0 || cvv.value.length !=3 && cvv.value.length !=0){
+        alert("not correct!")
 
     }
     else{
