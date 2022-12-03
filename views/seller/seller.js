@@ -1,62 +1,62 @@
-// const variables
+import {hide,show} from '../module/module.js';
+
+
+// ----------------------------------const variables---------------------------------------
 const dialog = document.querySelector("#dialog_product");
 const edit_btn = document.querySelector("#edit");
 const add_btn = document.querySelector("#add");
-const product_view = document.querySelector("#product-view");
+const product_view = document.querySelector("#product_view");
 let dialog_header = document.querySelector("#dialog_header");
-// const delete_btn = document.querySelector("#delete_btn");
 
 
 
-let animalData = [
+let click_add = document.querySelector("#click_add");
+click_add.addEventListener("click",on_add );
+
+
+let click_concel = document.querySelector("#click_concel");
+click_concel.addEventListener("click",on_concel);
+
+let create_new = document.querySelector("#add");
+create_new.addEventListener("click",on_create);
+
+let animal_data = [
     {
-        name:"Lion",
-        description:"black bird",
-        cost:"20",
+        name:"Lizard",
+        description:"orang lizard",
+        cost:"200",
         currency:"$",
-        img:"https://wallpaperaccess.com/full/1137899.jpg"
+        img:"../../images/lizard.png"
         
     },
     {
-        name:"Bird",
-        description:"black bird",
-        cost:"20",
+        name:"Crocodile",
+        description:"shy crocodile",
+        cost:"500",
         currency:"$",
-        img:"https://static.scientificamerican.com/sciam/cache/file/7A715AD8-449D-4B5A-ABA2C5D92D9B5A21_source.png?w=590&h=800&756A88D1-C0EA-4C21-92BE0BB43C14B265",
+        img:"../../images/crocodile.webp",
         
     },
     {
-        name:"Snake",
-        description:"black bird",
-        cost:"20",
+        name:"Shark",
+        description:"beautiful shark",
+        cost:"710",
         currency:"$",
-        img:"https://www.bumrungrad.com/getattachment/9ce46017-91e6-4d27-a6d8-c8867ac40698/Cobra.jpg"
+        img:"../../images/shark.webp"
         
     },
     {
-        name:"Rabbet",
-        description:"Red rabbet",
-        cost:"20",
+        name:"Turtle",
+        description:"black turtle",
+        cost:"120",
         currency:"$",
-        img:"https://images.ctfassets.net/9l3tjzgyn9gr/photo-112402/cf25fec1eea7ab0665f586b3481e436c/112402-rabbit-lucky-animals-510x600.jpg"
+        img:"../../images/turtle.jpg"
         
     },
 ]
 
-// console.log(isValidUrl(animalData[0].img))
-// function hide element
-function hide(element){
-    element.style.display = "none";
-}
-
-// function show
-function show(element){
-    element.style.display = "block";
-}
-
-
-// on add button
-function Onadd(){
+//-------------------------------- on add button-------------------------------
+function on_add(){
     show(dialog);
     hide(edit_btn);
     show(add_btn)
@@ -70,16 +70,14 @@ function Onadd(){
 
 }
 
-// on concel 
-function Onconcel(){
+// --------------------------on concel -----------------------------------
+function on_concel(){
     hide(dialog)
 }
 
 
-
-
-// On add button
-function Oncreate(){
+// -----------------------------On add button---------------------------------------
+function on_create(){
     
     let animal = {}
     let already_completed = true;
@@ -89,17 +87,18 @@ function Oncreate(){
     animal.currency = document.querySelector("#currency").value;
     animal.img = document.querySelector("#url").value;
 
-    for (i in animal) {
+    console.log(animal)
+    for (let i in animal) {
         if (animal[i]=="" ||  !(isValidUrl(animal.img))){
             already_completed = false;
         }
     }
     if(already_completed){
-        if( !checkData(animal)){
+        if( !check_data(animal)){
             hide(dialog);
-            animalData.push(animal);
-            saveData();
-            showProduct();
+            animal_data.push(animal);
+            save_data();
+            show_data();
             
         }
         else{
@@ -113,7 +112,7 @@ function Oncreate(){
     
 }
 
-// check url or not 
+// -----------------------url validator from www.freecodecamp.org ---------------------
 function isValidUrl(urlString) {
     try { 
         return Boolean(new URL(urlString)); 
@@ -121,30 +120,31 @@ function isValidUrl(urlString) {
     catch(e){ 
         return false; 
     }
-}
-// console.log(isValidUrl(animal.img))
+};
 
-function Onedit(event){
+
+//---------------------------- edit data -----------------------------------------------
+function on_edit(event){
     show(dialog);
     hide(add_btn);
     show(edit_btn);
     dialog_header .textContent = "Edit Data Of Animal";
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
-    document.querySelector("#nameOf_animal").value = animalData[index].name;
-    document.querySelector("#description").value = animalData[index].description;
-    document.querySelector("#cost").value = animalData[index].cost;
-    document.querySelector("#currency").value = animalData[index].currency;
-    document.querySelector("#url").value = animalData[index].img;
+    document.querySelector("#nameOf_animal").value = animal_data[index].name;
+    document.querySelector("#description").value = animal_data[index].description;
+    document.querySelector("#cost").value = animal_data[index].cost;
+    document.querySelector("#currency").value = animal_data[index].currency;
+    document.querySelector("#url").value = animal_data[index].img;
 
     
     document.querySelector("#edit").addEventListener("click",function(){
-        changeData(index);
+        change_data(index);
         index = null;
     });
-}
+};
 
-//change data 
-function changeData(index){
+//------------------------------change data ---------------------------------
+function change_data(index){
 
     let animal = {}
     animal.name = document.querySelector("#nameOf_animal").value;
@@ -152,20 +152,19 @@ function changeData(index){
     animal.cost = document.querySelector("#cost").value;
     animal.currency = document.querySelector("#currency").value;
     animal.img = document.querySelector("#url").value;
-
+    
     let already_completed = true;
-    for (i in animal) {
-        if (animal[i]=="" ||  !(isValidUrl(animal.img)) ||!(isValidUrl(animal.source))){
+    for (let i in animal) {
+        if (animal[i]==""){
             already_completed = false;
         }
     }
     if(already_completed){
             hide(dialog)
-            animalData[index] = animal;
-            saveData();
-            showProduct();
-        
-        
+            animal_data[index] = animal;
+            save_data();
+            load_data();
+            show_data();
     }
     else{
         alert("Please check it again!");
@@ -173,12 +172,11 @@ function changeData(index){
     
 }
 
-// check data
-function checkData(data){
+//------------------------------------------------- check data-----------------------------------------------
+function check_data(data){
     let found = false;
-    console.log("hello")
-    for (let i in animalData){
-        if (animalData[i].name.toUpperCase() == data.name.toUpperCase()  || animalData[i].img == data.img){
+    for (let i in animal_data){
+        if (animal_data[i].name.toUpperCase() == data.name.toUpperCase()  || animal_data[i].img == data.img){
             found = true;
             
         }
@@ -187,40 +185,37 @@ function checkData(data){
 
 
 }
-// delete data 
-function deleteData(event){
+// -------------------------------------remove data ------------------------------------------------------------------
+function remove(event){
     let index = event.target.parentElement.parentElement.parentElement.dataset.index;
-    animalData.splice(index, 1);
-    saveData();
-    showProduct();
+    animal_data.splice(index, 1);
+    save_data();
+    show_data();
 }
 
 
-// save data in local
-function saveData() {
-    localStorage.setItem("animalData", JSON.stringify(animalData));
+// ------------------------------------------save data in local-----------------------------------------------------------
+function save_data() {
+    localStorage.setItem("animal_data", JSON.stringify(animal_data));
     
 }
-  
-// load data 
-function loadproduct() {
-    let alldata = JSON.parse(localStorage.getItem("animalData"));
+// -----------------------------------------load data-----------------------------------------------------------------------
+function load_data() {
+    let alldata = JSON.parse(localStorage.getItem("animal_data"));
     if (alldata!= null) {
-        animalData = alldata;
+        animal_data = alldata;
     }
-    
-
-  
 }
 
 
-// show product 
-function showProduct(){
-    document.querySelector("#product-container").remove();
+// ---------------------------------------------show product ----------------------------------------------------------
+function show_data(){
+    document.querySelector("#product_container").remove();
     let product_container = document.createElement("div");
-    product_container.id ="product-container";
+    product_container.id ="product_container";
     product_view.appendChild(product_container);
-    for(let i=0 ; i<animalData.length ; i++){
+
+    for(let i=0 ; i<animal_data.length ; i++){
         let card = document.createElement("div");
         card.className = "card";
         card.dataset.index = i;
@@ -228,7 +223,7 @@ function showProduct(){
 
         let img = document.createElement("img");
         img.id = "animal";
-        img.src = animalData[i].img;
+        img.src = animal_data[i].img;
         card.appendChild(img);
 
         let retail_news = document.createElement("div");
@@ -240,12 +235,12 @@ function showProduct(){
 
         let name = document.createElement("p");
         name.className = "name_animal";
-        name.textContent = animalData[i].name;
+        name.textContent = animal_data[i].name;
         name.style.fontWeight = "bold";
         news.appendChild(name)
 
         let cost = document.createElement("p");
-        cost.textContent = animalData[i].cost +animalData[i].currency;
+        cost.textContent = animal_data[i].cost +animal_data[i].currency;
         news.appendChild(cost);
 
        
@@ -256,33 +251,31 @@ function showProduct(){
         for (let i = 0 ; i<5 ; i++) {
             let img = document.createElement("img");
             img.className = "stars";
-            img.src = "../../images/black star.webp";
+            img.src = "../../images/goal star.png";
             span.appendChild(img);
         }
-
         let action = document.createElement("div");
         action.className = "action";
         retail_news.appendChild(action);
         let img_edit = document.createElement("img");
-        img_edit.addEventListener("click",Onedit);
+        img_edit.addEventListener("click",on_edit);
         img_edit.src = "../../images/edit.png";
         action.appendChild(img_edit);
 
         let img_delete = document.createElement("img");
         img_delete.id = "delete_btn";
         img_delete.src = "../../images/delete.png";
-        img_delete.addEventListener("click",deleteData);
+        img_delete.addEventListener("click",remove);
         action.appendChild(img_delete);
         
     }
 }
 
 
-
-// showProduct()
-// saveData()
-loadproduct()
-showProduct()
+//-------------------------------- call function -----------------------------------------------------
+save_data()
+load_data()
+show_data()
 
 
 
