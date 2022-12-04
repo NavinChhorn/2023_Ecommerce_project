@@ -279,9 +279,9 @@ input:focus {
 }
 #nocard{
     width: 100%;
-    font-size: 50px;
+    font-size: 20px;
     color: #f1485B;
-    margin: 150px 0 0 400px;
+    margin: 100px 0 0 250px;
 }
 .all_card{
     /* display: flex; */

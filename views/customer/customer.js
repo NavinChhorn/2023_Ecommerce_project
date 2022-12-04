@@ -46,10 +46,6 @@ document.querySelector(".payment_btn").addEventListener("click",payment);
 let total_container = document.querySelector(".container_total");
 
 
-
-
-
-
 let old_data = [
     {
         name:"bird",
@@ -97,9 +93,21 @@ let old_data = [
 ];
 
 
-//----------------- load data --------------------------------------------------
+// //----------------- load data --------------------------------------------------
 let animal_data = JSON.parse(localStorage.getItem("animal_data"));
+if (animal_data==null){
+    no_card.textContent = "Don't have data storage please go to seller page and change or add card !"
+    no_card.style.display = "block";
+    new_product.style.display = "none";
+    old_product.style.display = "none";
+    
+}
+else{
+    new_product.style.display = "";
+    old_product.style.display = "";
+    no_card.style.display  = "none";
 
+}
 // ---------------------------------------- function detail ------------------------------------
 function detail(data,index){
     cart_index = index;
@@ -158,11 +166,11 @@ function goBack(){
 
 //-------------------------------- show product on buyer page function ---------------------------------------------
 function show_data(data,id,parent,page){
-        document.querySelector(id).remove();
-        var card_new_product = document.createElement("div");
-        card_new_product.id = id;
-        card_new_product.className = "all_card"
-        parent.appendChild(card_new_product);
+    document.querySelector(id).remove();
+    let card_new_product = document.createElement("div");
+    card_new_product.id = id;
+    card_new_product.className = "all_card"
+    parent.appendChild(card_new_product);
     for(let i=0 ;i< data.length ;i++) {
         let card = document.createElement("div");
         card.className = "card";
@@ -245,6 +253,7 @@ function search(event) {
 
     if (array.length===0){
         no_card.style.display = "block";
+        no_card.textContent = "Don't Have This Animal......!"
         new_product.style.display = "none";
         old_product.style.display = "none";
     }
@@ -456,6 +465,7 @@ function clear(){
 // --------------------------------- call function -----------------------------------------------------------------
 save_data("old_data",old_data);
 load_data("old_data",old_data);
+
 show_data(animal_data,"#contain_new_product",new_product,"customer");
 show_data(old_data,"#contain_old_product",old_product,"customer");
 
