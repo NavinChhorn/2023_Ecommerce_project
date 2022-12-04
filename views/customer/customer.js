@@ -96,7 +96,7 @@ let old_data = [
 // //----------------- load data --------------------------------------------------
 let animal_data = JSON.parse(localStorage.getItem("animal_data"));
 if (animal_data==null){
-    no_card.textContent = "Don't have data storage please go to seller page and change or add card !"
+    no_card.textContent = "Don't have data storage yet. Please go to seller page and make some change or add card !"
     no_card.style.display = "block";
     new_product.style.display = "none";
     old_product.style.display = "none";
@@ -253,7 +253,7 @@ function search(event) {
 
     if (array.length===0){
         no_card.style.display = "block";
-        no_card.textContent = "Don't Have This Animal......!"
+        no_card.textContent = "Don't have this animal......!"
         new_product.style.display = "none";
         old_product.style.display = "none";
     }
